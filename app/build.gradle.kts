@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("kotlin-android")
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
 }
@@ -41,7 +41,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -51,8 +50,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // Lifecycle and Room dependencies
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.androidx.room.runtime)
-    ksp(libs.androidx.room.compiler)
+    ksp(libs.room.compiler)
 }
+
